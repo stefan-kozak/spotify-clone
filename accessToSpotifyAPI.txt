@@ -1,0 +1,29 @@
+client_id: 60ab2a632f3942debcf22cd7da0c3f81
+client_secret: 35e2c600dec04beeb5d0a94697189cd3
+redirect_uri: https%3A%2F%2Fgrady.sk%2F
+
+https://accounts.spotify.com/authorize?client_id=60ab2a632f3942debcf22cd7da0c3f81&response_type=code&redirect_uri=https%3A%2F%2Fgrady.sk%2F&scope=user-read-private%20user-read-email
+
+
+code=AQBpvVblABhOgqyXj2rcLONIw44pew2SmAGqq39jWyNREYKuO9aRvnsdiGlfgZIs7npT4CFx1Y_IHFlOeKXF5D89cUU_665bQoeGBsBrH6yYyBx8484sudgz0KEFeWGP90s-aU_VItcESItLwT3XKeVWLjLaycGRdRuoOEfLhuLTc2biZVkavQ8ohCJZXD0NE8oSWk-sQjtt
+
+
+curl -H "Authorization: Basic NjBhYjJhNjMyZjM5NDJkZWJjZjIyY2Q3ZGEwYzNmODE6MzVlMmM2MDBkZWMwNGJlZWI1ZDBhOTQ2OTcxODljZDM=" -d grant_type=authorization_code -d code=AQD-27RSfufcJOjXWaZgGzHBC2sETSwXE0bq-rllZOYB0NT_UydIZaKrqSMuqVUpMWq5nxSw1n9L4CDZLSvNZKWNFdJdznpkgJz8WJYa-GfM9bkCW87XAImsJ5W85PIpMbf4DldYDmCiYLQRXQWC_u1wFUQTd6RhZ_LtC-3b6yD3Ry-TGgAc_Yr-Ul-bfZ7G3hqr6chGkjGL -d redirect_uri=https%3A%2F%2Fgrady.sk%2F https://accounts.spotify.com/api/token
+
+60ab2a632f3942debcf22cd7da0c3f81:35e2c600dec04beeb5d0a94697189cd3
+
+
+
+
+{"access_token":"BQCy-PDTHBIGzp4IymT0yTALMZws15Crn1JJau8aQBoeo8pcy_u3tB1fFGyfsP3lpUwG1sUNGgCQr6loUCZHg0sd30C8475xFcEjXugHXiFNEL7QWX3SltjrnzlKKiOAcrOtB0zo70Wx_WA4dx-C7DCdZlAailA9gnvsOFtTxKTLEgSmIg","token_type":"Bearer","expires_in":3600,"refresh_token":"AQDGZYRZ0n5JDBeh5r3MXG7bgBF0rsSAidCc91X8NTJlDyZokL6jADSw6mbWx5xaNJyS8pc_Heovu6CxbTuIPOES_e48ViOZTKdoUFjuAztqYslkQFSJeWNTrf7LqvZFdzU","scope":"user-read-email user-read-private"}
+
+access_token: BQCy-PDTHBIGzp4IymT0yTALMZws15Crn1JJau8aQBoeo8pcy_u3tB1fFGyfsP3lpUwG1sUNGgCQr6loUCZHg0sd30C8475xFcEjXugHXiFNEL7QWX3SltjrnzlKKiOAcrOtB0zo70Wx_WA4dx-C7DCdZlAailA9gnvsOFtTxKTLEgSmIg
+refresh_token: AQDGZYRZ0n5JDBeh5r3MXG7bgBF0rsSAidCc91X8NTJlDyZokL6jADSw6mbWx5xaNJyS8pc_Heovu6CxbTuIPOES_e48ViOZTKdoUFjuAztqYslkQFSJeWNTrf7LqvZFdzU
+
+
+
+
+
+
+
+https://accounts.spotify.com/authorize?client_id=60ab2a632f3942debcf22cd7da0c3f81&redirect_uri=https%3A%2F%2Fgrady.sk%2F&scope=user-read-private%20user-read-email&response_type=token&state=123
