@@ -102,6 +102,19 @@ $f-small: 14px;
   overflow-y: scroll;
   overflow-x: hidden;
 
+  &::-webkit-scrollbar {
+    width: 0.8em;
+  }
+  
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: darken($white, 60%);
+    outline: none;
+  }
+
   h1{
     color: #fff;
     margin-bottom: 1em;
