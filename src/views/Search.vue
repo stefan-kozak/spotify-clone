@@ -8,14 +8,27 @@
       <input type="text"  v-model="query" placeholder="Search for songs, artists, genre">
     </form>
 
+      <a href="#" class="top-search">
+        <h1>Top Search</h1>
+        {{ tracks[0]}}
+      </a>
+
+
     <ul>
       <li v-for="track in tracks" :key="track.id">
-        
+
+
+
         <img :src="track.albumCover.images[0].url" alt="track_album">
         <div>
           <a href="#track"><h1>{{ songify(track) }}</h1></a>
           <a href="#author">{{ track.artist[0].name }}</a>
         </div>
+
+      
+
+        
+        
       </li>
     </ul>
 
@@ -39,12 +52,12 @@ export default {
       let query = encodeURI(this.query)
 
        // GET TOKEN AT URL 'https://accounts.spotify.com/authorize?client_id=60ab2a632f3942debcf22cd7da0c3f81&redirect_uri=https%3A%2F%2Fgrady.sk%2F&scope=user-read-private%20user-read-email&response_type=token&state=123'
-      let accessToken = 'BQAmKOQE2IK2FShbfRf0CT7-v0ZNMPbxTzGHQozqFnsHJzhj6Tpjq1bofxmLQvK3e34jcQRsbgJF44jFycxeIbOxOFAibw9kX3L4NSnNySC9sGaR3vwXvqa_vXGDbEIynIE1IgqKY0VIotDO0yuN0JdDVLzajHq325bwHou5DNzPmir8Thg&token_type=Bearer&expires_in=3600&state=123';
+      let accessToken = 'BQDlv6LHuBX6-FLdt1moWIbs4Vwl94UQaW5dcG43X60vwse7OClqqNh6tE4kSaGheCr63ChoAPNNFLMOFnON3Cqr5Hq2Wbx6RmOBUPSN_z19EbuJvtJ57WlO4iAPC88zgfQpwH8MvSCXW92W-6-GyE7dIrpZgkQfNjU-ZAc9IsEVzvmPTJQ&token_type=Bearer&expires_in=3600&state=123';
 
 
       const config = {
         method: 'get',
-        url: `https://api.spotify.com/v1/search?q=${query}&type=track`,
+        url: `https://api.spotify.com/v1/search?q=${query}&type=track%2Cartist`,
         headers: {
           'Authorization': 'Bearer ' + accessToken
         },
@@ -56,7 +69,7 @@ export default {
           this.tracks = []
           //console.log(res.data.tracks);
           res.data.tracks.items.forEach( track => {
-            //console.log(track);
+            console.log(track);
             this.extractData(track)
 
             this.tracks.push(this.extractData(track))
@@ -122,6 +135,8 @@ $f-small: 14px;
 }
 
 form{
+  margin-bottom: 3em;
+
   input{
     background: #ffffff url(../assets/svg/search-icon.svg) no-repeat 5% 45%;
     padding: 1em;
