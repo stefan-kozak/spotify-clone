@@ -1,6 +1,6 @@
 client_id: 60ab2a632f3942debcf22cd7da0c3f81
 client_secret: 35e2c600dec04beeb5d0a94697189cd3
-redirect_uri: https%3A%2F%2Fgrady.sk%2F
+redirect_uri: http%3A%2F%2Flocalhost%3A8080%2F
 
 https://accounts.spotify.com/authorize?client_id=60ab2a632f3942debcf22cd7da0c3f81&response_type=code&redirect_uri=https%3A%2F%2Fgrady.sk%2F&scope=user-read-private%20user-read-email
 
@@ -26,4 +26,4 @@ refresh_token: AQDGZYRZ0n5JDBeh5r3MXG7bgBF0rsSAidCc91X8NTJlDyZokL6jADSw6mbWx5xaN
 
 
 
-https://accounts.spotify.com/authorize?client_id=60ab2a632f3942debcf22cd7da0c3f81&redirect_uri=https%3A%2F%2Fgrady.sk%2F&scope=user-read-private%20user-read-email&response_type=token&state=123
+https://accounts.spotify.com/authorize?client_id=60ab2a632f3942debcf22cd7da0c3f81&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2F&scope=user-read-private%20user-read-email&response_type=token&state=123
