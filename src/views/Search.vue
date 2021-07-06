@@ -1,16 +1,11 @@
 <template>
   <div class="search">
     
-    <form action="#" @submit.prevent="getMusic()">
-      <a>LEFT</a>
-      <a>RIGHT</a>
+    <SearchForm @addSearchedTracks="tracks = $event" @addSearchedArtists="artists = $event"/>
 
-      <input type="text"  v-model="query" placeholder="Search for songs, artists, genre">
-    </form>
-
-      <a href="#" class="top-search">
+      <a class="top-search">
         <h1>Top Artist Result</h1>
-        <section class="top-result" v-if="checkArray(artists)">
+        <section class="top-result" v-if="artists.length > 0 && Array.isArray(artists)">
           <article>
             <div>
               <img :src="artists[0].images[0].url" alt="artist_image">
@@ -21,9 +16,9 @@
         </section>
       </a>
 
-      <a href="#" class="top-search">
+      <a class="top-search">
         <h1>Top Track Result</h1>
-        <section class="top-result" v-if="checkArray(tracks)">
+        <section class="top-result" v-if="tracks.length > 0 && Array.isArray(tracks)">
           <article>
             <div>
               <img :src="tracks[0].album.images[0].url" alt="artist_image">
@@ -43,81 +38,25 @@
 
 
 <script>
-import axios from "axios"
+import SearchForm from '@/components/SearchComponents/SearchForm.vue'
 
 export default {
+  components: {
+    SearchForm
+  },
   data() {
     return {
-      query: '',
       tracks: [],
       artists: [],
     }
   },
   methods: {
-    getMusic(){
-      let query = encodeURI(this.query)
-
-       // GET TOKEN AT URL 'https://accounts.spotify.com/authorize?client_id=60ab2a632f3942debcf22cd7da0c3f81&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2F&scope=user-read-private%20user-read-email&response_type=token&state=123'
-      let accessToken = 'BQBfWychjkbs9hS8btMdv7ktmHL0bavfGm4l5ZEy323xp4_ddFESdrMvH2PzxpjLr2o033Sq7h00-_cXlP-E3UbIruoJRP4dnud8DV_zEJLr8NRSGpDvRpPPgRg01OiwvRQ1wPy9H74WuAbz-KJYvzSccFBbDVHhLX7Looe9-XBLZJtsDFE&token_type=Bearer&expires_in=3600&state=123';
-
-
-      const config = {
-        method: 'get',
-        url: `https://api.spotify.com/v1/search?q=${query}&type=track%2Cartist`,
-        headers: {
-          'Authorization': 'Bearer ' + accessToken
-        },
-    }
-
-      //let res = axios(config);
-      axios.get(config.url, config)
-        .then(res => {
-          //CLEAN TRACKS FOR NEW SEARCH RESULT
-          this.tracks = []
-          //PUSH ALL SEARCHED TRACKS INTO ARRAY
-          res.data.tracks.items.forEach( track => {
-            this.tracks.push(this.extractTrackData(track))
-          });
-
-          //CLEAN ARTISTS FOR NEW SEARCH RESULT
-          this.artists = []
-          //PUSH ALL SEARCHED ARTISTS INTO ARRAY
-          res.data.artists.items.forEach( artist => {
-            //console.log(artist)
-            this.artists.push(this.extractArtistsData(artist))
-          });
-        })
-        // CHECK README IF UNAUTHORIZED
-        .catch( error => {
-          console.log(error, "Check readme for authorization");
-        })
-    },
-    extractTrackData({
-      id,
-      artist,
-      uri: audioUri,
-      album,
-      name,
-      type,
-    }) 
-    {
-        return  { name, id, artist, audioUri, album, type } ;  
-    },
-
-     extractArtistsData({
-      id,
-      name,
-      uri,
-      images,
-      type,
-    }) 
-    {
-        return  { name, id, uri, images, type} ;  
-    },
-    checkArray(a){
-    return a.length > 0 && Array.isArray(a)
-    }
+    $_checkArray(a){
+      console.log(a);
+      //return a.length > 0 && Array.isArray(a)
+      }
   },
+    
 }
 </script>
 
@@ -139,7 +78,10 @@ $f-small: 14px;
 }
 
 .search{
-  background-color: darken($secondary-color, 50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: darken($secondary-color, 3%);
   overflow-y: scroll;
   overflow-x: hidden;
 
@@ -160,26 +102,15 @@ $f-small: 14px;
     color: #fff;
     margin-bottom: 1em;
   }
+  a{
+    cursor: pointer;
+  }
 }
 
-form{
-  margin-bottom: 3em;
 
-  input{
-    background: #ffffff url(../assets/svg/search-icon.svg) no-repeat 5% 45%;
-    padding: 1em;
-    padding-left: 4em;
 
-    border-radius: 9999px;
-    width: 30%;
-    border: none;
-    &:focus, &:focus-within, &:focus-visible{
-      appearance: none;
-      outline: none;
-      border:none
-    }
-  }
-
+.top-search{
+  width: 35%;
 }
 
 .top-result{
@@ -187,7 +118,7 @@ form{
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  width: 35%;
+  width: 100%;
   padding: 2em;
   padding-left: 3em;
   margin-bottom: 2em;
@@ -220,6 +151,8 @@ form{
       position: relative;
       overflow: hidden;
       border-radius: 50%;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
       img{
         width: 100%;
         height: 100%;
@@ -228,42 +161,6 @@ form{
   }
   
   
-}
-
-ul{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-
-  li{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2em;
-    background-color: $secondary-color;
-    width: 20%;
-    margin: 1em;
-
-    div{
-      padding: 1em;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    a{
-      text-decoration: none;
-      padding: 0.2em;
-      color: #fff;
-    }
-
-    img{
-      width: 90%;
-    }
-  }
 }
 
 </style>
