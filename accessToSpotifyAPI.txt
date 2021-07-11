@@ -5,10 +5,14 @@ redirect_uri: http%3A%2F%2Flocalhost%3A8080%2F
 https://accounts.spotify.com/authorize?client_id=60ab2a632f3942debcf22cd7da0c3f81&response_type=code&redirect_uri=https%3A%2F%2Fgrady.sk%2F&scope=user-read-private%20user-read-email
 
 
-code=AQBpvVblABhOgqyXj2rcLONIw44pew2SmAGqq39jWyNREYKuO9aRvnsdiGlfgZIs7npT4CFx1Y_IHFlOeKXF5D89cUU_665bQoeGBsBrH6yYyBx8484sudgz0KEFeWGP90s-aU_VItcESItLwT3XKeVWLjLaycGRdRuoOEfLhuLTc2biZVkavQ8ohCJZXD0NE8oSWk-sQjtt
+code=AQA20ifRMfN7KBpy3RKwz2_ysrFDi-WW9RmBFEKRlKDOjGuHESSV1V5ziuhoIIsHIPJApjr8gMpq3SKtlFw6r9atOLSo5GkY6Jim_xQYGmhXTUiseIxQb_YzQZ5vwXLSSxfD_-0cwKmx1kOYTMOI4BrigdG6b4jmODvYj52WIVKNXAw8x2IYlyQrYwmTFmx0A5i0WukNii-g
 
 
-curl -H "Authorization: Basic NjBhYjJhNjMyZjM5NDJkZWJjZjIyY2Q3ZGEwYzNmODE6MzVlMmM2MDBkZWMwNGJlZWI1ZDBhOTQ2OTcxODljZDM=" -d grant_type=authorization_code -d code=AQD-27RSfufcJOjXWaZgGzHBC2sETSwXE0bq-rllZOYB0NT_UydIZaKrqSMuqVUpMWq5nxSw1n9L4CDZLSvNZKWNFdJdznpkgJz8WJYa-GfM9bkCW87XAImsJ5W85PIpMbf4DldYDmCiYLQRXQWC_u1wFUQTd6RhZ_LtC-3b6yD3Ry-TGgAc_Yr-Ul-bfZ7G3hqr6chGkjGL -d redirect_uri=https%3A%2F%2Fgrady.sk%2F https://accounts.spotify.com/api/token
+curl -H "Authorization: Basic NjBhYjJhNjMyZjM5NDJkZWJjZjIyY2Q3ZGEwYzNmODE6MzVlMmM2MDBkZWMwNGJlZWI1ZDBhOTQ2OTcxODljZDM=" -d grant_type=authorization_code -d code=AQA20ifRMfN7KBpy3RKwz2_ysrFDi-WW9RmBFEKRlKDOjGuHESSV1V5ziuhoIIsHIPJApjr8gMpq3SKtlFw6r9atOLSo5GkY6Jim_xQYGmhXTUiseIxQb_YzQZ5vwXLSSxfD_-0cwKmx1kOYTMOI4BrigdG6b4jmODvYj52WIVKNXAw8x2IYlyQrYwmTFmx0A5i0WukNii-g -d redirect_uri=https%3A%2F%2Fgrady.sk%2F https://accounts.spotify.com/api/token
+
+
+{"access_token":"BQCMceyCXgK4-JsW9If2h5KQggdv2Tq1AFD6kzPeU1g4nPKjIB-Arxbmv-YBA09aw0M5pQ5yCVLMeqwIzfr7Jf-t5UIeVIMZH7yD1UMDlxYEE2lV5a3sgnT7eUciZeyKzgQ-wsNpUfcqJ-OqcTsztIjc04j6GoxZKZY8qDjIL2iVFMLnQwp9oA","token_type":"Bearer","expires_in":3600,"refresh_token":"AQAH3WIMOPvGVIi_OzXp726Br9WLCUhllwBNvR3jyk2etd-L4Asu72rJs45jnG-J2sTBB7CJuw0ZTlHPtUk1ZR7BveNzdYF8Tfw1Ggy-joULvsS_6UQJ6W76Cs8o2QRp3Zs","scope":"user-read-email user-read-private"}
+
 
 60ab2a632f3942debcf22cd7da0c3f81:35e2c600dec04beeb5d0a94697189cd3
 
@@ -27,3 +31,6 @@ refresh_token: AQDGZYRZ0n5JDBeh5r3MXG7bgBF0rsSAidCc91X8NTJlDyZokL6jADSw6mbWx5xaN
 
 
 https://accounts.spotify.com/authorize?client_id=60ab2a632f3942debcf22cd7da0c3f81&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2F&scope=user-read-private%20user-read-email&response_type=token&state=123
+
+
+curl -H "Authorization: Basic NjBhYjJhNjMyZjM5NDJkZWJjZjIyY2Q3ZGEwYzNmODE6MzVlMmM2MDBkZWMwNGJlZWI1ZDBhOTQ2OTcxODljZDM=" -d grant_type=refresh_token -d refresh_token=AQAH3WIMOPvGVIi_OzXp726Br9WLCUhllwBNvR3jyk2etd-L4Asu72rJs45jnG-J2sTBB7CJuw0ZTlHPtUk1ZR7BveNzdYF8Tfw1Ggy-joULvsS_6UQJ6W76Cs8o2QRp3Zs https://accounts.spotify.com/api/token

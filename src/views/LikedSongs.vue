@@ -1,3 +1,3 @@
 <template>
-    <h1>Liked Songs</h1>
+  <h1>Liked Songs</h1>
 </template>
