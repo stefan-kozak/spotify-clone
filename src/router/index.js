@@ -22,6 +22,14 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "LikedSongs" */ "../views/LikedSongs.vue"), // LAZY LOADING
   },
+
+  {
+    path: "/:access_token",
+    component: () =>
+      import(
+        /* webpackChunkName: "AuthVerification" */ "../views/AuthVerification.vue"
+      ), // LAZY LOADING
+  },
 ];
 
 const router = createRouter({

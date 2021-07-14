@@ -88,7 +88,7 @@ $f-small: 14px;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: sans-serif;
 }
 
 main {
@@ -104,8 +104,16 @@ main {
 #app-view {
   width: 70%;
   height: 90vh;
-  padding: 1em;
-  padding-left: 3em;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 0.8em;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: darken($white, 90%);
+    outline: none;
+  }
 }
 
 nav {

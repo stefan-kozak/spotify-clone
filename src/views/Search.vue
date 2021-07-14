@@ -1,48 +1,34 @@
 <template>
-  <div class="search">
-    <SearchForm
-      @addSearchedTracks="tracks = $event"
-      @addSearchedArtists="artists = $event"
-    />
+  <div>
+    <div class="search">
+      <SearchForm
+        @addSearchedTracks="tracks = $event"
+        @addSearchedArtists="artists = $event"
+      />
 
-    <transition name="fade">
-      <a class="top-search" v-if="$_checkArray(artists)">
-        <h1>Top Artist Result</h1>
-        <section class="top-result">
-          <article>
-            <div>
-              <img :src="artists[0].images[0].url" alt="artist_image" />
-            </div>
-            <h1>{{ artists[0].name }}</h1>
-            <p>{{ artists[0].type }}</p>
-          </article>
-        </section>
-      </a>
-    </transition>
+      <TopArtistResult :artists="artists" />
+      <TopTrackResult :tracks="tracks" />
 
-    <transition name="fade">
-      <a class="top-search" v-if="$_checkArray(tracks)">
-        <h1>Top Track Result</h1>
-        <section class="top-result">
-          <article>
-            <div>
-              <img :src="tracks[0].album.images[0].url" alt="artist_image" />
-            </div>
-            <h1>{{ tracks[0].name }}</h1>
-            <p>{{ tracks[0].type }}</p>
-          </article>
-        </section>
-      </a>
-    </transition>
+      <GenresList></GenresList>
+      <CategoriesList></CategoriesList>
+    </div>
   </div>
 </template>
 
 <script>
 import SearchForm from "@/components/SearchComponents/SearchForm.vue";
+import TopArtistResult from "@/components/SearchComponents/TopArtistResult.vue";
+import TopTrackResult from "@/components/SearchComponents/TopTrackResult.vue";
+import GenresList from "@/components/SearchComponents/GenresList.vue";
+import CategoriesList from "@/components/SearchComponents/CategoriesList.vue";
 
 export default {
   components: {
     SearchForm,
+    TopArtistResult,
+    TopTrackResult,
+    GenresList,
+    CategoriesList,
   },
   data() {
     return {
@@ -50,11 +36,8 @@ export default {
       artists: [],
     };
   },
-  methods: {
-    $_checkArray(a) {
-      return a.length > 0 && Array.isArray(a);
-    },
-  },
+
+  methods: {},
 };
 </script>
 
@@ -73,93 +56,10 @@ $f-small: 14px;
 
 .search {
   display: flex;
+  height: auto;
   flex-direction: column;
   align-items: flex-start;
   background-color: darken($secondary-color, 3%);
-  overflow-y: scroll;
-  overflow-x: hidden;
-
-  &::-webkit-scrollbar {
-    width: 0.8em;
-  }
-
-  &::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: darken($white, 60%);
-    outline: none;
-  }
-
-  h1 {
-    color: #fff;
-    margin-bottom: 1em;
-  }
-  a {
-    cursor: pointer;
-  }
-}
-
-.top-search {
-  width: 35%;
-}
-
-.top-result {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  width: 100%;
-  padding: 2em;
-  padding-left: 3em;
-  margin-bottom: 2em;
-  background-color: $secondary-color;
   color: $white;
-
-  article {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    h1 {
-      font-size: 1.5em;
-      padding-top: 0.5em;
-      margin-bottom: 0.5em;
-    }
-    p {
-      font-size: 0.8em;
-      text-transform: uppercase;
-      font-weight: bold;
-      letter-spacing: 1px;
-      background-color: #000;
-      padding: 0.5em 1em;
-      border-radius: 9999px;
-    }
-    div {
-      max-width: 7em;
-      max-height: 7em;
-      display: inline-block;
-      position: relative;
-      overflow: hidden;
-      border-radius: 50%;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-        0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.2s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
 }
 </style>
