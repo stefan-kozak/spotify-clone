@@ -4,7 +4,9 @@
     <section class="categories">
       <div class="category" v-for="category in categories" :key="category.id">
         <h1>{{ category.name }}</h1>
-        <div class="category-image"><img :src="category.icons[0].url" alt="category" /></div>
+        <div class="category-image">
+          <img :src="category.icons[0].url" alt="category" />
+        </div>
       </div>
     </section>
   </div>
@@ -78,8 +80,12 @@ export default {
   div {
     width: 16em;
     height: 16em;
-    background: rgb(128,153,62);
-    background: linear-gradient(180deg, rgba(128,153,62,1) 0%, rgba(203,243,99,1) 100%);
+    background: rgb(128, 153, 62);
+    background: linear-gradient(
+      180deg,
+      rgba(128, 153, 62, 1) 0%,
+      rgba(203, 243, 99, 1) 100%
+    );
     border-radius: 1em;
     position: relative;
     display: flex;
@@ -103,9 +109,10 @@ export default {
       width: 8em;
       height: 8em;
       transform: rotate(20deg);
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
-      img{
+      img {
         width: 100%;
       }
     }
