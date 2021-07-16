@@ -11,6 +11,7 @@
             <h1>{{ artists[0].name }}</h1>
             <p>{{ artists[0].type }}</p>
           </div>
+          <PlayButton />
         </article>
       </section>
       <div class="songs-list">
@@ -27,9 +28,13 @@
 </template>
 
 <script>
+import PlayButton from '@/components/CrossComponents/PlayButton.vue'
+
 export default {
   props: ["artists"],
-
+    components: {
+    PlayButton,
+  },
   methods: {
     checkArray(a) {
       return a.length > 0 && Array.isArray(a);
@@ -83,6 +88,8 @@ $f-small: 14px;
     padding: 2em;
     padding-left: 3em;
     width: 100%;
+    position: relative;
+    
     div {
       display: flex;
       flex-direction: column;

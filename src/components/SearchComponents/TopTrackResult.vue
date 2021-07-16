@@ -5,10 +5,13 @@
       <section class="top-result">
         <article>
           <div>
-            <img :src="tracks[0].album.images[0].url" alt="artist_image" />
+            <div>
+              <img :src="tracks[0].album.images[0].url" alt="artist_image" />
+            </div>
+            <h1>{{ tracks[0].name }}</h1>
+            <p>{{ tracks[0].type }}</p>
           </div>
-          <h1>{{ tracks[0].name }}</h1>
-          <p>{{ tracks[0].type }}</p>
+          <PlayButton />
         </article>
       </section>
     </a>
@@ -16,9 +19,13 @@
 </template>
 
 <script>
+import PlayButton from '@/components/CrossComponents/PlayButton.vue'
+
 export default {
   props: ["tracks"],
-
+  components: {
+    PlayButton,
+  },
   methods: {
     checkArray(a) {
       return a.length > 0 && Array.isArray(a);
@@ -47,7 +54,7 @@ $f-small: 14px;
 }
 
 .top-search {
-  width: 35%;
+  width: 30%;
   padding-top: 1em;
   margin-left: 3em;
 }
@@ -58,22 +65,29 @@ $f-small: 14px;
   align-items: flex-start;
   justify-content: center;
   width: 100%;
-  padding: 2em;
-  padding-left: 3em;
-  margin-bottom: 2em;
-  background-color: $secondary-color;
-  color: $white;
 
   article {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    h1 {
+    align-items: flex-start;
+    background-color: $secondary-color;
+    padding: 2em;
+    padding-left: 3em;
+    width: 100%;
+    position: relative;
+    
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h1 {
       font-size: 1.5em;
       padding-top: 0.5em;
       margin-bottom: 0.5em;
-    }
-    p {
+      }
+
+      p {
       font-size: 0.8em;
       text-transform: uppercase;
       font-weight: bold;
@@ -81,8 +95,9 @@ $f-small: 14px;
       background-color: #000;
       padding: 0.5em 1em;
       border-radius: 9999px;
-    }
-    div {
+      }
+
+      div {
       max-width: 7em;
       max-height: 7em;
       display: inline-block;
@@ -95,8 +110,11 @@ $f-small: 14px;
       img {
         width: 100%;
         height: 100%;
+        }
       }
     }
+    
+    
   }
 }
 
