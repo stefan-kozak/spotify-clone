@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import PlayButton from '@/components/CrossComponents/PlayButton.vue'
+import PlayButton from "@/components/CrossComponents/PlayButton.vue";
 
 export default {
   props: ["tracks"],
@@ -35,13 +35,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-//   COLORS
-$secondary-color: #121212;
-$primary-color: #1db954;
-$white: #fff;
 
-//   FONT SIZES
-$f-small: 14px;
 
 .search {
   h1 {
@@ -75,46 +69,44 @@ $f-small: 14px;
     padding-left: 3em;
     width: 100%;
     position: relative;
-    
+
     div {
       display: flex;
       flex-direction: column;
       align-items: center;
 
       h1 {
-      font-size: 1.5em;
-      padding-top: 0.5em;
-      margin-bottom: 0.5em;
+        font-size: 1.5em;
+        padding-top: 0.5em;
+        margin-bottom: 0.5em;
       }
 
       p {
-      font-size: 0.8em;
-      text-transform: uppercase;
-      font-weight: bold;
-      letter-spacing: 1px;
-      background-color: #000;
-      padding: 0.5em 1em;
-      border-radius: 9999px;
+        font-size: 0.8em;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 1px;
+        background-color: #000;
+        padding: 0.5em 1em;
+        border-radius: 9999px;
       }
 
       div {
-      max-width: 7em;
-      max-height: 7em;
-      display: inline-block;
-      position: relative;
-      overflow: hidden;
-      border-radius: 50%;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        max-width: 7em;
+        max-height: 7em;
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
-      img {
-        width: 100%;
-        height: 100%;
+        img {
+          width: 100%;
+          height: 100%;
         }
       }
     }
-    
-    
   }
 }
 

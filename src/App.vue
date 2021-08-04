@@ -71,11 +71,8 @@
     <aside></aside>
   </main>
 
-  <div class="player">
-  </div>
+  <div class="player"></div>
 </template>
-
-
 
 <style lang="scss">
 //   COLORS

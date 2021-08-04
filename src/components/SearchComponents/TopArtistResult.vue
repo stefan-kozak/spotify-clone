@@ -14,25 +14,16 @@
           <PlayButton />
         </article>
       </section>
-      <div class="songs-list">
-        <h1>
-          Songs
-          <p>song1</p>
-          <p>song2</p>
-          <p>song3</p>
-          <p>song4</p>
-        </h1>
-      </div>
     </a>
   </transition>
 </template>
 
 <script>
-import PlayButton from '@/components/CrossComponents/PlayButton.vue'
+import PlayButton from "@/components/CrossComponents/PlayButton.vue";
 
 export default {
   props: ["artists"],
-    components: {
+  components: {
     PlayButton,
   },
   methods: {
@@ -89,7 +80,7 @@ $f-small: 14px;
     padding-left: 3em;
     width: 100%;
     position: relative;
-    
+
     div {
       display: flex;
       flex-direction: column;
@@ -126,10 +117,6 @@ $f-small: 14px;
       }
     }
   }
-}
-
-.songs-list {
-  margin-left: 10em;
 }
 
 .fade-enter-active,

@@ -78,8 +78,8 @@ export default {
   align-items: center;
   padding-bottom: 2em;
   div {
-    width: 16em;
-    height: 16em;
+    width: 13em;
+    height: 13em;
     background: rgb(128, 153, 62);
     background: linear-gradient(
       180deg,
@@ -95,9 +95,11 @@ export default {
     h1 {
       position: absolute;
       z-index: 99;
-      margin-top: -50%;
+      margin-top: -70%;
+      left: 10%;
       color: white;
       font-weight: bold;
+      font-size: 1.3em;
     }
 
     .category-image {
